@@ -2,8 +2,6 @@ import styles from "./Footer.module.css"
 import { MdEmail } from "react-icons/md";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithubAlt } from "react-icons/fa";
-import { SiPeerlist } from "react-icons/si";
-import { BsTwitterX } from "react-icons/bs";
 
 const Footer = () => {
     return (
