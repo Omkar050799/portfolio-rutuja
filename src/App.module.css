@@ -1,0 +1,25 @@
+.main{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+}
+
+.screens_container{
+  flex: 1;
+  overflow: auto;
+  /* Optimize scrolling performance */
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  will-change: scroll-position;
+  /* GPU acceleration */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+.navbar{
+  position: fixed;
+  width: 100vw;
+  z-index: 100;
+}

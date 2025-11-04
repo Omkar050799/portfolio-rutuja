@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    color: white;
+}
+
+:root {
+    --primary-color: #1A1A1A;
+    --secondary-color: #C1C1C1;
+    --accent-color: #E91E63;
+    --accent-pink: #E91E63;
+    --accent-purple: #9C27B0;
+    --accent-soft-pink: #F8BBD0;
+    --accent-lavender: #CE93D8;
+    --card-background: #2d2c2c;
+    --gradient-pink: linear-gradient(135deg, #F8BBD0 0%, #E91E63 50%, #9C27B0 100%);
+    --gradient-soft: linear-gradient(135deg, #FCE4EC 0%, #F8BBD0 50%, #CE93D8 100%);
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+.main {
+    height: 100%;
+    width: 100%;
+}
+
+.page-title {
+    font-weight: 700;
+    font-size: 2rem;
+    background: linear-gradient(135deg, #F8BBD0, #E91E63, #CE93D8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.page-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #F8BBD0, #E91E63, #CE93D8, transparent);
+    border-radius: 2px;
+}
+
+/* Responsive page-title */
+@media screen and (max-width: 768px) {
+    .page-title {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+        letter-spacing: 0.5px;
+    }
+
+    .page-title::after {
+        width: 50px;
+        height: 2.5px;
+        bottom: -8px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .page-title {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        letter-spacing: 0.3px;
+    }
+
+    .page-title::after {
+        width: 40px;
+        height: 2px;
+        bottom: -6px;
+    }
+}
+
+.keyword {
+    background: linear-gradient(90deg,
+            #F8BBD0,
+            /* soft pink */
+            #E91E63,
+            /* pink */
+            #CE93D8,
+            /* lavender */
+            #9C27B0,
+            /* purple */
+            #F8BBD0);
+    background-size: 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    will-change: background-position;
+    animation: keywordShift 5s ease-in-out infinite;
+    /* GPU acceleration */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+
+@keyframes colorShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes keywordShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+    width: 3px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #F8BBD0, #E91E63, #CE93D8);
+    border-radius: 3px;
+    /* Smooth scrolling */
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Optimize scroll performance */
+* {
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Optimize rendering */
+section {
+    contain: layout style;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+/* Reduce animations on mobile for better performance */
+@media screen and (max-width: 768px) {
+    body {
+        animation: none;
+        background-position: 0% 50%;
+    }
+    
+    .content::before {
+        animation: none;
+        opacity: 0.5;
+    }
+    
+    .keyword,
+    .profession {
+        animation-duration: 6s;
+    }
+    
+    /* Reduce backdrop-filter blur on mobile for better performance */
+    [style*="backdrop-filter"],
+    .content,
+    .introduction,
+    .card,
+    .navbar,
+    .input_form {
+        backdrop-filter: blur(6px) !important;
+        -webkit-backdrop-filter: blur(6px) !important;
+    }
+}
+
+
+
+html {
+    scroll-behavior: smooth;
+    /* Enable hardware acceleration */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+body {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f0f23 50%, #1a1a2e 75%, #16213e 100%);
+    background-size: 400% 400%;
+    background-attachment: fixed;
+    /* Optimize animation performance */
+    will-change: background-position;
+    animation: gradientShift 20s ease infinite;
+    min-height: 100vh;
+    /* Prevent layout shifts */
+    contain: layout style paint;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    
+    body,
+    .keyword,
+    .profession,
+    .content::before {
+        animation: none !important;
+    }
+}
+
+.PhoneInputInput {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: 1.2px solid var(--secondary-color);
+    border-radius: 7px;
+    background: transparent;
+}
+
+.PhoneInputCountrySelect option{
+    background: var(--primary-color);
+    color: var(--secondary-color);
+
+}

@@ -1,0 +1,167 @@
+.navbar {
+    backdrop-filter: blur(12px) saturate(150%);
+    -webkit-backdrop-filter: blur(12px) saturate(150%);
+    background: rgba(26, 26, 46, 0.7);
+    border-bottom: 1px solid rgba(248, 187, 208, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    /* Performance optimizations */
+    will-change: transform;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    contain: layout style paint;
+}
+
+.navbar_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 2rem;
+    z-index: 10;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar_container {
+        padding: 0.8rem 1rem;
+    }
+
+    .navbar__brand {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar_container {
+        padding: 0.6rem 0.8rem;
+    }
+
+    .navbar__brand {
+        font-size: 1.5rem;
+    }
+}
+
+.navbar__links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    padding: 0.5rem;
+}
+
+.navbar__item a {
+    text-decoration: none;
+    color: #C1C1C1;
+    transition: color 0.3s ease;
+    position: relative;
+    padding: 0.25rem 0;
+}
+
+.navbar__item a:hover {
+    color: #F8BBD0;
+    text-shadow: 0 0 8px rgba(248, 187, 208, 0.6);
+}
+
+.navbar__actions a {
+    text-decoration: none;
+}
+
+.navbar__brand {
+    font-family: "Dancing Script", "Oleo Script", cursive;
+    font-size: 2.2rem;
+    color: #F8BBD0;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(248, 187, 208, 0.5);
+    transition: all 0.3s ease;
+}
+
+.navbar__brand:hover {
+    color: #E91E63;
+    text-shadow: 0 0 15px rgba(233, 30, 99, 0.6);
+    transform: scale(1.05);
+}
+
+.navbar__link:hover {
+    color: #F8BBD0;
+    text-shadow: 0 0 8px rgba(248, 187, 208, 0.6);
+}
+
+.active {
+    color: #F8BBD0 !important;
+    border-bottom: 2px solid #E91E63;
+    text-shadow: 0 0 8px rgba(248, 187, 208, 0.6);
+}
+
+.bar_icon {
+    display: none;
+}
+
+@media (max-width:768px) {
+
+    .navbar__links {
+        display: flex;
+        flex-direction: column;
+        /* position: absolute; */
+        top: 0;
+        /* left: 100%; */
+        display: none;
+        transition: right 0.4s ease, opacity 0.4s ease;
+    }
+
+    .navbar__actions {
+        display: none;
+    }
+
+    .bar_icon {
+        display: block;
+        font-size: 1.5rem;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        background: rgba(26, 26, 46, 0.95);
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        z-index: 9999;
+        padding: 2rem 1.5rem;
+        border-left: 1px solid rgba(248, 187, 208, 0.2);
+        box-shadow: -8px 0 32px rgba(0, 0, 0, 0.4);
+        animation: slideIn 0.4s ease forwards;
+        gap: 1rem;
+    }
+
+    .navbar__item {
+        padding: 0.5rem 0;
+    }
+
+    .navbar__item a {
+        font-size: 1.1rem;
+        padding: 0.5rem;
+        display: block;
+    }
+
+    .navbar_container {
+        /* position: relative; */
+        /* overflow: hidden; */
+    }
+
+    @keyframes slideIn {
+        0% {
+            right: -100%;
+            /* Start off-screen */
+        }
+
+        100% {
+            right: 0;
+            /* End at right edge */
+        }
+    }
+
+}

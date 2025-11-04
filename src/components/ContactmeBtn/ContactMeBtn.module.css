@@ -1,0 +1,76 @@
+.main {
+    position: relative; /* required for pseudo-element */
+    height: 100%;
+    width: 100%;
+    padding: 0.6rem 2rem;
+    border-radius: 999px; 
+    border: 2px solid #F8BBD0;
+    cursor: pointer;
+    overflow: hidden; /* hide overflowing pseudo-element */
+    background-color: transparent;
+    color: #FFFFFF;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 8px rgba(233, 30, 99, 0.2);
+    /* GPU acceleration */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: transform;
+}
+
+.main:hover {
+    border-color: #E91E63;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.4);
+}
+
+.main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(135deg, #F8BBD0, #E91E63, #CE93D8); /* hover fill color */
+    transform: translateZ(0) scaleX(0); /* start collapsed */
+    transform-origin: left; /* fill from left */
+    transition: transform 0.3s ease;
+    z-index: 0; /* behind text */
+    will-change: transform;
+}
+
+.main:hover::before {
+    transform: translateZ(0) scaleX(1); /* expand to full width */
+}
+
+.main p {
+    position: relative;
+    z-index: 1; /* on top of pseudo-element */
+    margin: 0;
+    transition: color 0.3s ease;
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+/* Tablet Styles */
+@media screen and (max-width: 768px) {
+    .main {
+        padding: 0.5rem 1.5rem;
+    }
+
+    .main p {
+        font-size: 0.95rem;
+    }
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 480px) {
+    .main {
+        padding: 0.5rem 1.2rem;
+        border-width: 1.5px;
+    }
+
+    .main p {
+        font-size: 0.85rem;
+    }
+}
+
+
